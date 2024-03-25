@@ -1,0 +1,176 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Set a high z-index to make sure it's above other elements */
+}
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  /* border-top-left-radius: 8px;
+  border-top-right-radius: 8px; */
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.location label {
+  margin-right: 10px;
+}
+
+.location input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+}
+
+.location button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: green;
+  color: #fff;
+}
+
+.location button:hover {
+  background-color: #3498db;
+}
+
+.today-container {
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.today-container h2 {
+  background-color: #3498db;
+  color: #fff;
+  padding: 15px;
+  margin: 0;
+}
+
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.temperature,
+.description {
+  text-align: center;
+}
+
+.temperature p,
+.description p {
+  margin: 0;
+}
+
+.temperature p {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+  padding: 20px;
+  background-color: #ecf0f1;
+  border-top: 1px solid #bdc3c7;
+}
+
+.date p {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.weekly-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 200px;
+}
+
+.weekly-container h2 {
+  background-color: #3498db;
+  color: #fff;
+  padding: 15px;
+  margin: 0;
+}
+
+.weekly-forecast {
+  display: flex;
+  margin: 10px;
+  justify-content: space-around; /* Adjust spacing between cards */
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+}
+
+.forecast-card {
+  flex: 0 1 calc(50% - 20px); /* Distribute cards evenly with some spacing */
+  margin: 0 10px; /* Adjust the margin as needed */
+  box-sizing: border-box;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #ecf0f1;
+}
+
+.forecast-card p {
+  margin: 0;
+}
+
+.forecast-card .day {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.forecast-card .temp {
+  font-size: 1.2em;
+  color: #ff0000;
+}
+
+.forecast-card .condition {
+  color: #3498db;
+}

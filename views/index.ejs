@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>SkyCast</h1>
+    </header>
+    <div class="weather-container">
+      <div class="location">
+        <form action="/" method="post">
+          <label for="city-input">Enter City:</label>
+          <input
+            type="text"
+            id="city-input"
+            name="city"
+            placeholder="City, Country"
+          />
+          <button type="submit">Get Weather</button>
+        </form>
+      </div>
+      <% if (locals.weatherData && locals.seven_days) { %>
+      <div class="today-container">
+        <h2>Today's Weather in <%= weatherData.cityName %></h2>
+        <div class="current-weather">
+          <div class="temperature">
+            <p id="temperature"><%= weatherData.temp %>°C</p>
+            <p id="feels-like">Feels like: <%= weatherData.feels_like %>°C</p>
+          </div>
+          <div class="description">
+            <p id="description"><%= weatherData.description %></p>
+            <p id="humidity">Humidity: <%= weatherData.humidity %>%</p>
+            <p id="pressure">Pressure: <%= weatherData.pressure %> hPa</p>
+          </div>
+        </div>
+        <div class="date">
+          <p id="date"><%=weatherData.formattedDateTime%></p>
+        </div>
+      </div>
+
+      <div class="weekly-container">
+        <h2>Weekly Forecast</h2>
+        <div class="weekly-forecast">
+          <% for( let index = 0; index < seven_days.time.length; index++ ) { %>
+          <div class="forecast-card">
+            <p class="day"><%= seven_days.time[index] %></p>
+            <p class="temp"><%= seven_days.temperature_2m_max[index] %>°C</p>
+            <p class="condition">
+              <%= seven_days.temperature_2m_min[index] %>°C
+            </p>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
