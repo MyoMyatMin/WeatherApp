@@ -1,16 +1,21 @@
 import express from "express";
 import axios from "axios";
 import "dotenv/config";
+import { fileURLToPath } from "url";
+import path from "path";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 const port = 3000;
 
 const api_key = process.env.API_KEY;
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-
+app.use(express.static(__dirname + "public"));
 app.get("/", (req, res) => {
   res.render("index", { weatherData: null, seven_days: null, error: null });
 });
